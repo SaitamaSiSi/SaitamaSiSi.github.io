@@ -79,7 +79,7 @@ params:
     Content: >
       Welcome to my Blog! 测试托管到github的博客网站, 使用的hugo, 参考的[sonnycalcr的博客网站](https://psaaa.github.io/jakelove.github.io/)。
       <br>
-      也可以在其他地方访问我的文字材料, 必须要公网ipv6地址才能访问, 如下：
+      也可以在其他地方访问我的文字材料, 必须要公网ipv6地址才能访问, 或者手机访问, 如下：
       <br>
       <div>
       ● [Zyh's aliyun domain](https://h.cqzyh.cn:2083)
