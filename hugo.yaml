@@ -4,7 +4,7 @@ copyright: "[©2024 Zyh's Blog](https://saitamasisi.github.io/)" # 网站的版�
 theme: PaperMod # 主题
 languageCode: zh-cn # 语言
 
-paginate: 5
+paginate: 5 # 文章分页
 
 enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
 hasCJKLanguage: true # 是否有 CJK 的字符
@@ -51,31 +51,74 @@ languages:
           pageRef: about/
           weight: 21
 
-# 配置搜索
-outputs:
-  home:
-    - HTML # 生成的静态页面
-    - RSS # 这个其实无所谓
-    - JSON # necessary for search, 这里的配置修改好之后，一定要重新生成一下
 
 params:
-  # 搜索个性化设置
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: Sonny Calcr
+  defaultTheme: dark # 默认是暗色背景
+  ShowShareButtons: false # 关闭分享的按钮
+  ShowReadingTime: true # 展示预估的阅读时长
+  displayFullLangName: true # 展示全名
+  ShowPostNavLinks: true # 展示文章导航链接，就是下一页上一页的那个
+  ShowBreadCrumbs: false # 是否展示标题上方的面包屑
+  ShowCodeCopyButtons: true # 是否展示复制代码的按钮
+  ShowRssButtonInSectionTermList: true # RSS 相关
+  ShowAllPagesInArchive: true # 在归档页面展示所有的页面
+  ShowPageNums: true # 展示页面的页数
+  ShowToc: true # 展示文章详情页的目录
+  comments: true # 评论
+  images: ["https://i.postimg.cc/7hwBy7VS/calcr.png"] # 缺省的图片，比如，博客的封面
+  DateFormat: "2006-01-02" # 这个时间是作者自己写的，只能这样写
+
+  # 首页的文章上方的一些信息
+  homeInfoParams:
+    # 首页的 profile 内容
+    Title: "Hey Guys 👋"
+    # 首页的 profile 内容
+    Content: >
+      Welcome to my Blog! 测试托管到github的博客网站, 使用的hugo, 参考的[sonnycalcr的博客网站](https://psaaa.github.io/jakelove.github.io/)。
+      <br>
+      也可以在其他地方访问我的文字材料, 必须要公网ipv6地址才能访问, 如下：
+      <br>
+      <div>
+      ● [Zyh's aliyun domain](https://h.cqzyh.cn:2083)
+      </div>
+  # 社交帐号的按钮
+  socialIcons:
+    - name: github
+      title: Follow my Github
+      url: "https://github.com/SaitamaSiSi"
+    - name: Bilibili
+      title: 关注我的 B 站帐号
+      url: "https://space.bilibili.com/52849969"
+
+  # 搜索
   fuseOpts:
-    isCaseSensitive: false # 是否大小写敏感
-    shouldSort: true # 是否排序
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
-    includeMatches: true
-  # 评论设置
+      isCaseSensitive: false # 是否大小写敏感
+      shouldSort: true # 是否排序
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+      keys: ["title", "permalink", "summary", "content"]
+      includeMatches: true
+  # 设置网站的标签页的图标，即 favicon
+  assets:
+      favicon: "favicon.png"
+      favicon16x16: "favicon.png"
+      favicon32x32: "favicon.png"
+      apple_touch_icon: "favicon.png"
+      safari_pinned_tab: "favicon.png"
+      disableHLJS: true
+
+  # 评论的设置
   giscus:
-    repo: "SaitamaSiSi/SaitamaSiSi.github.io"
-    repoId: "R_kgDONeM_ow"
+    repo: "sonnycalcr/sonnycalcr.github.io"
+    repoId: "R_kgDOMed_Fg"
     category: "Announcements"
-    categoryId: "DIC_kwDONeM_o84ClUxJ"
+    categoryId: "DIC_kwDOMed_Fs4ChXJF"
     mapping: "pathname"
     strict: "0"
     reactionsEnabled: "1"
@@ -85,14 +128,13 @@ params:
     darkTheme: "dark"
     lang: "zh-CN"
     crossorigin: "anonymous"
-  assets:
-    disableHLJS: true
-    # 设置网站的标签页的图标，即 favicon
-    favicon: "favicon.png"
-    favicon16x16: "favicon.png"
-    favicon32x32: "favicon.png"
-    apple_touch_icon: "favicon.png"
-    safari_pinned_tab: "favicon.png"
+
+# https://github.com/adityatelange/hugo-PaperMod/wiki/Features#search-page
+outputs:
+  home:
+    - HTML # 生成的静态页面
+    - RSS # 这个其实无所谓
+    - JSON # necessary for search, 这里的配置修改好之后，一定要重新生成一下
 
 markup:
   goldmark:
@@ -107,4 +149,3 @@ markup:
     # 这里设置 style 没用，得自己加 css
     # style: "github-dark"
     # style: monokai
-
